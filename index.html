@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Portal Login</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background: #f0f2f5; display: flex; justify-content: center; align-items: center; height: 100vh; }
+        .login-card { background: white; padding: 40px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); width: 100%; max-width: 400px; text-align: center; }
+        .login-card h2 { margin-bottom: 8px; color: #333; }
+        .login-card p { color: #666; font-size: 14px; margin-bottom: 24px; }
+        .form-group { margin-bottom: 16px; text-align: left; }
+        .form-group label { display: block; font-size: 13px; font-weight: 600; color: #444; margin-bottom: 6px; }
+        .form-group input, .form-group select { width: 100%; padding: 10px 12px; border: 1px solid #ccc; border-radius: 6px; font-size: 14px; }
+        .btn { width: 100%; background: #1b365d; color: white; border: none; padding: 12px; border-radius: 6px; font-size: 16px; font-weight: 600; cursor: pointer; margin-top: 10px; }
+        .btn:hover { background: #12243f; }
+    </style>
+</head>
+<body>
+
+    <div class="login-card">
+        <h2>School Portal</h2>
+        <p>Sign in to access your dashboard</p>
+        
+        <form id="loginForm" onsubmit="handleLogin(event)">
+            <div class="form-group">
+                <label>Select Portal</label>
+                <select id="role" required>
+                    <option value="">-- Choose Role --</option>
+                    <option value="teacher">Teacher Portal (ID Scanner & Attendance)</option>
+                    <option value="student">Student Portal (Results, Fees & Books)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>ID Number / Email</label>
+                <input type="text" id="username" placeholder="Enter your ID" required>
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" id="password" placeholder="Enter password" required>
+            </div>
+            <button type="submit" class="btn">Login</button>
+        </form>
+    </div>
+
+    <script>
+        function handleLogin(event) {
+            event.preventDefault();
+            const role = document.getElementById('role').value;
+            if (role === 'teacher') {
+                alert('Redirecting to Teacher Attendance Scanner...');
+                // We will point this to teacher.html later
+            } else if (role === 'student') {
+                alert('Redirecting to Student Dashboard...');
+                // We will point this to student.html later
+            }
+        }
+    </script>
+</body>
+</html>
